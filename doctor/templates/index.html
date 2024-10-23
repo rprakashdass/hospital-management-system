@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Doctor Dashboard</h2>
+        <p class="lead">Welcome, Dr. {{ user.username }}. Here you can manage your patients and view medical reports.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Patients</h5>
+                        <p class="card-text">View and update patient records, assign treatments, and more.</p>
+                        <a href="#" class="btn btn-primary">Manage Patients</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">View Reports</h5>
+                        <p class="card-text">Access medical reports and diagnostic results.</p>
+                        <a href="#" class="btn btn-primary">View Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
