@@ -31,7 +31,7 @@ This Health Management System is developed as part of the Infosys Springboard In
 
 - **Backend**: Django Framework
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
-- **Database**: SQLite (or any other preferred database)
+- **Database**: SQLite
 - **Version Control**: Git for source code management
 
 ## File Structure
@@ -51,7 +51,7 @@ This Health Management System is developed as part of the Infosys Springboard In
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/rprakashdass/health-disease-prediction.git
+   git clone https://github.com/rprakashdass/hospital-management-system.git
    ```
 2. Navigate to the project directory:
    ```bash
