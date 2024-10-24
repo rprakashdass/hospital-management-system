@@ -1,5 +1,32 @@
 {% extends "base.html" %}
+<<<<<<< HEAD
+{% load static %}
+{% block content %}
+
+<div class="container-fluid mt-auto">
+    <div class="row">
+        <!-- Left side with image -->
+        
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <figure class="text-center">
+                <img src="{% static 'login_template.jpg' %}" class="img-fluid" style="height:350px" alt="Doctor or Employee">
+                <figcaption class="mb-4"><h1>Login</h1></figcaption>
+            </figure>
+        </div>
+        
+        <!-- Right side with login buttons -->
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <a href="{% url 'userauth:login_user' 'doctor' %}" class="btn btn-success btn-lg mb-3">I am a Doctor</a>
+            <a href="{% url 'userauth:login_user' 'patient' %}" class="btn btn-success btn-lg mb-3">I am a Patient</a>
+        </div>
+
+    </div>
+</div>
+
+
+=======
 
 {% block content %}
 
+>>>>>>> 25c35da1111a0e159012650888808c7017ef0938
 {% endblock content %}
