@@ -28,17 +28,10 @@ INSTALLED_APPS = [
     'app',
     'userauth',
     'doctor',
-<<<<<<< HEAD
     'patient'
 ]
 
 LOGIN_URL = 'app:home'
-=======
-]
-
-LOGIN_URL = ''
-LOGIN_REDIRECT_URL = 'app:home'
->>>>>>> 25c35da1111a0e159012650888808c7017ef0938
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
