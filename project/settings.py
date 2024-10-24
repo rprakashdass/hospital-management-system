@@ -28,10 +28,17 @@ INSTALLED_APPS = [
     'app',
     'userauth',
     'doctor',
+<<<<<<< HEAD
+    'patient'
+]
+
+LOGIN_URL = 'app:home'
+=======
 ]
 
 LOGIN_URL = ''
 LOGIN_REDIRECT_URL = 'app:home'
+>>>>>>> 25c35da1111a0e159012650888808c7017ef0938
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -44,6 +51,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'project.urls'
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
 
 TEMPLATES = [
     {
@@ -109,7 +121,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
