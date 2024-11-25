@@ -12,7 +12,6 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-<<<<<<< HEAD
             <a class="navbar-brand" href="#">Health Management</a>
             <div class="" id="navbarNav">
                 <ul class="navbar-nav">
@@ -22,17 +21,6 @@
                         </li>
                     {% comment %} {% else %} {% endcomment %}
                     {% comment %} {% endif %} {% endcomment %}
-=======
-            <a class="navbar-brand" href="{% url 'doctor:home' %}">Health Management</a>
-            <div class="" id="navbarNav">
-                <ul class="navbar-nav">
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'userauth:logout' %}">Logout</a>
-                        </li>
-                    {% else %}
-                    {% endif %}
->>>>>>> 25c35da1111a0e159012650888808c7017ef0938
                 </ul>
             </div>
         </div>

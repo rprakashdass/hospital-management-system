@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid" style="width:500px">
     <form action="" method=POST>
       {% csrf_token %}
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input type="username" name="username" class="form-control" id="username">
-          <div class="form-text">Enter your provided username please!</div>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
@@ -15,8 +14,8 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <p>Don't have an accout, sign up <a href="{% url 'userauth:register' %}">here</a>
-</div>
+      <p>Don't have an account? Sign up <a href="{% url 'userauth:register' role %}">here</a></p>
+    </div>
 
 
 {% endblock content %}
