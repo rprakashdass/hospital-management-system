@@ -8,5 +8,6 @@ urlpatterns = [
     path('u/', include('django.contrib.auth.urls')),
     path('d/', include('doctor.urls')),
     path('p/', include('patient.urls')),
+    path('lehme/', include('model.urls')),
     path('admin/', admin.site.urls),
 ]

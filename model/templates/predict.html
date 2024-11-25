@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Disease</title>
+</head>
+<body>
+    <h1>Disease Prediction Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Predicted Disease: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
