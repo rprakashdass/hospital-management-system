@@ -2,18 +2,24 @@ from django.shortcuts import render
 from .forms import SymptomsForm
 import joblib
 import numpy as np
+import pandas as pd
 
-# Create your views here.model/templates/modelPages/index.html
+
 def home(request):
     return render(request, "model_home.html")
 
-# Load the model and preprocessing objects
+
 model_data = joblib.load('model/model.pkl')
 model = model_data['model']
 scaler = model_data['scaler']
+label_encoder = model_data['label_encoder']
+features = model_data['features']
+
+disease_labels = label_encoder.classes_
 
 def predict_disease(request):
     prediction = None
+    predicted_label = None
     if request.method == 'POST':
         form = SymptomsForm(request.POST)
         if form.is_valid():
@@ -35,18 +41,25 @@ def predict_disease(request):
                 int(user_input['smoking_status'])
             ]
 
+            # Convert input_vector to pandas DataFrame to match the model's expected input format
+            input_df = pd.DataFrame([input_vector], columns=features)
+
             # Scale the input
-            input_vector_scaled = scaler.transform([input_vector])
+            input_vector_scaled = scaler.transform(input_df)
 
             # Make prediction
             pred_encoded = model.predict(input_vector_scaled)
             prediction = pred_encoded[0]
-            print(input_vector_scaled)
-            print(pred_encoded)
-            print(prediction)
-          # Get the numeric prediction
+
+            # Map the encoded prediction (numeric value) to the disease name
+            predicted_label = disease_labels[prediction]
+
+            # Print the results for debugging
+            print("Input Vector (Scaled):", input_df)
+            print("Encoded Prediction:", prediction)
+            print("Predicted Label:", predicted_label)
 
     else:
         form = SymptomsForm()
 
-    return render(request, 'predict.html', {'form': form, 'prediction': prediction})
+    return render(request, 'predict.html', {'form': form, 'prediction': predicted_label})
