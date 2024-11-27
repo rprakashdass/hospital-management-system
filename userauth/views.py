@@ -10,10 +10,11 @@ from django.http import HttpResponse
 def home(request):
     try:
         profile = Profile.objects.get(user=request.user)
-        if profile.role == 'doctor':
-            return redirect('register')
-        else:
-            return redirect('register')
+        # if profile.role == 'doctor':
+        #     return redirect('register')
+        # else:
+        #     return redirect('register')
+        return redirect('patient:register')
     except Profile.DoesNotExist:
         return render(request, 'no_profile.html') 
 
@@ -79,7 +80,7 @@ def login_user(request, role=None):
                 return HttpResponse("Invalid role specified.")
         else:
             messages.error(request, "Invalid username or password.")
-            return redirect('login_user', role=role)
+            return redirect('userauth:login_user', role=role)
 
     return render(request, 'user/login.html', {'role': role})
 
