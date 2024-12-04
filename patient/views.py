@@ -1,4 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponseForbidden
+from django.contrib.auth.decorators import login_required
+from userauth.models import Profile
 
-def index(request):
-    return render(request, 'home_h.html')
+@login_required
+def home(request):
+    # try:
+        # user's profile
+        # profile = Profile.objects.get(user=request.user)
+        
+    #     if profile.role == 'patient':
+    #         return render(request, 'patient/home.html')
+    #     else:
+    #         return render(request, 'patient/home.html')
+    #         # return HttpResponseForbidden("You do not have access to this page.")  # 403 error page
+    # except Profile.DoesNotExist:
+    #     return HttpResponseForbidden("Profile not found or invalid user.")
+        return render(request, 'patient/home.html')
