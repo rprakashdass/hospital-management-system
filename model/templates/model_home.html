@@ -1,9 +1,47 @@
-{% comment %} {% extends "base.html" %}
-{% block content %} {% endcomment %}
+{% extends 'base.html' %}
 
-<div class="container-fluid">
-    <p>This is lehme</p>
-    <a href="{% url "lehme:predict" %}"> Predict </a>
-<div>
+{% block content %}
 
-{% comment %} {% endblock content %} {% endcomment %}
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-3xl font-extrabold text-blue-600 mb-6">Introduction to Lehme Model</h1>
+        <p class="text-gray-700 text-lg leading-relaxed mb-8">
+            The Lehme Model is a state-of-the-art prediction algorithm designed to assist in diagnosing health conditions
+            based on patient symptoms and clinical data. This model leverages advanced machine learning to analyze input
+            data and provide accurate predictions for various diseases.
+        </p>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Parameters Needed:</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li><strong>Height (cm):</strong> Patient's height in centimeters.</li>
+                <li><strong>Weight (kg):</strong> Patient's weight in kilograms.</li>
+                <li><strong>Blood Pressure:</strong> Measured in mmHg.</li>
+                <li><strong>Temperature (°C):</strong> Body temperature in degrees Celsius.</li>
+                <li><strong>Heart Rate:</strong> Beats per minute.</li>
+                <li><strong>Symptoms:</strong> Encoded symptom identifier.</li>
+                <li><strong>Existing Conditions:</strong> Encoded identifier for pre-existing medical conditions.</li>
+                <li><strong>Laboratory Test Results:</strong> Placeholder for lab test values (if applicable).</li>
+                <li><strong>Cholesterol (mg/dL):</strong> Cholesterol level in milligrams per deciliter.</li>
+                <li><strong>Blood Sugar (mg/dL):</strong> Blood sugar level in milligrams per deciliter.</li>
+                <li><strong>Family History of Heart Disease:</strong> Boolean (Yes/No) for heart disease in family history.</li>
+                <li><strong>Smoking Status:</strong> Encoded value for smoking habits.</li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">How It Works:</h2>
+            <p class="text-gray-700 text-lg leading-relaxed">
+                The input parameters are processed and scaled to match the expected input format of the Lehme Model. The model
+                predicts a disease label, mapping it to a known health condition based on the provided data.
+            </p>
+        </div>
+
+        <a href="{% url 'lehme:predict' %}" class="inline-block bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            Predict Now
+        </a>
+    </div>
+</div>
+
+
+{% endblock content %}
