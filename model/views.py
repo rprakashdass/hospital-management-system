@@ -15,7 +15,16 @@ scaler = model_data['scaler']
 label_encoder = model_data['label_encoder']
 features = model_data['features']
 
-disease_labels = label_encoder.classes_
+disease_labels = {}
+disease_labels[0] = 'Unknown',
+disease_labels[1] = 'Chest Pain',
+disease_labels[2] = 'Dizziness',
+disease_labels[3] = 'Fatigue',
+disease_labels[4] = 'Nausea',
+disease_labels[5] = 'Palpitations',
+disease_labels[6] = 'Shortness of Breath',
+
+print(disease_labels)
 
 def predict_disease(request):
     prediction = None

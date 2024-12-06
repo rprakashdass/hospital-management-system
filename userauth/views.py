@@ -47,80 +47,67 @@ def register_view(request, role=None):
     form = RegisterForm()
     if request.method == 'POST':
         username = request.POST.get('username')
-        password = request.POST.get('password')
+        password = request.POST.get('password1')
+        email = request.POST.get('email')
 
-        # Check if the user already exists
+        # Check if the username already exists
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already exists!")
             return redirect('app:home')
 
         # Create the user object
-        user = User.objects.create_user(username=username, password=password)
-        
-        # Check if a profile already exists
-        try:
-            profile = Profile.objects.get(user=user)
-            profile.role = role  # Update the role in the Profile model
-            profile.save()
-            messages.success(request, f"Profile for {username} updated with role: {role}")
-            
-            login(request, user)
-            return redirect(ROLE_HOME_URLS[role])
+        user = User.objects.create_user(username=username, password=password, email=email)
 
-        except Profile.DoesNotExist:
-            # Create a new profile if it doesn't exist
-            profile = Profile.objects.create(user=user, role=role)
-            profile.save()
+        # Check if a profile exists for the user
+        profile, created = Profile.objects.get_or_create(user=user)
+
+        # Update the profile role regardless of whether it was newly created
+        profile.role = role
+        profile.save()  # `force_insert` is not needed here
+
+        if created:
             messages.success(request, f"Profile for {username} created with role: {role}")
-            
-            login(request, user)
-            return redirect(ROLE_HOME_URLS[role])
-    else:
-        form = RegisterForm()
+        else:
+            messages.success(request, f"Profile for {username} updated with new role: {role}")
+
+        # Log the user in and redirect them based on role
+        login(request, user)
+        return redirect(ROLE_HOME_URLS.get(role, 'app:default_home'))
 
     return render(request, 'user/register.html', {"form": form, "role": role})
 
 
+import logging
+logger = logging.getLogger(__name__)
+
 def login_user(request, role=None):
-    form = LoginForm()
-    # Check if the role is valid
-    if role not in ROLE_HOME_URLS:
+    logger.info(f"Attempting login for role: {role}")
+    if role not in VALID_ROLES:
         return HttpResponseBadRequest("Invalid role specified.")
 
-    # Handle POST request for login
-    if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+    form = LoginForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
         user = authenticate(request, username=username, password=password)
-        
-        if user is not None:
-            login(request, user)
-            
+
+        if user:
             try:
-                # Check if the user has a profile
                 profile = Profile.objects.get(user=user)
-                
                 if profile.role == role:
-                    # Role matches, redirect to the correct home page
-                    return redirect(ROLE_HOME_URLS.get(role, 'userauth:login_user'))
+                    login(request, user)
+                    return redirect(ROLE_HOME_URLS.get(role))
                 else:
-                    # Role doesn't match, notify the user
-                    messages.error(request, "Role mismatch. Please ensure you are logging in with the correct credentials.")
-                    return redirect('userauth:login_user', role=role)
-            
+                    messages.error(request, "Role mismatch. Please log in with the correct role.")
             except Profile.DoesNotExist:
-                # If no profile exists, ask the user to complete their profile
-                messages.error(request, "Profile not found. Please complete your profile first.")
-                return redirect('userauth:register', role=role)
+                messages.error(request, "No profile found. Please register.")
         else:
-            # If the user doesn't exist, notify the user about invalid credentials
             messages.error(request, "Invalid username or password.")
-            return redirect('userauth:login_user', role=role)
-    else:
-        # Display the login form
-        form = LoginForm()
+        
+        return redirect('userauth:login_user', role=role)
 
     return render(request, 'user/login.html', {'form': form, 'role': role})
+
 
 
 def logout_user(request):
