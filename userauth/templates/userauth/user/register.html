@@ -40,6 +40,10 @@
                     {{ form.password2|add_class:"form-control w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" }}
                 </div>
 
+                <input type="hidden" name="role" value="{{ role }}">
+                <p class="text-gray-600 text-sm">Role: {{ role }}</p>
+            
+
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">Register</button>
             </form>
 

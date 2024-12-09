@@ -16,13 +16,12 @@ label_encoder = model_data['label_encoder']
 features = model_data['features']
 
 disease_labels = {}
-disease_labels[0] = 'Unknown',
-disease_labels[1] = 'Chest Pain',
-disease_labels[2] = 'Dizziness',
-disease_labels[3] = 'Fatigue',
-disease_labels[4] = 'Nausea',
-disease_labels[5] = 'Palpitations',
-disease_labels[6] = 'Shortness of Breath',
+disease_labels[0] = 'Arrhythmia'
+disease_labels[1] = 'Coronory Artery Disease'
+disease_labels[2] = 'Heart Dieases'
+disease_labels[3] = 'Hypertension'
+disease_labels[4] = 'Stroke'
+disease_labels[5] = 'Unknown'
 
 print(disease_labels)
 

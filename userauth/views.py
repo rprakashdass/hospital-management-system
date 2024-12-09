@@ -10,7 +10,6 @@ from django.http import HttpResponseBadRequest, HttpResponseForbidden
 import logging
 logger = logging.getLogger(__name__)
 
-# Mapping roles to their respective home views
 ROLE_HOME_URLS = {
     'admin': 'admin:home',
     'doctor': 'doctor:home',
@@ -34,12 +33,11 @@ def home(request):
             elif profile.role == 'patient':
                 return redirect('patient:home')  # Patient's home page
             else:
-                return HttpResponseForbidden("You do not have permission to access this page.")  # Access denied if the role is unknown
+                return HttpResponseForbidden("You do not have permission to access this page.")
         except Profile.DoesNotExist:
-            return render(request, 'no_profile.html')
+            return render(request, 'userauth/no_profile.html')
     
-    # If not logged in, return the regular home page
-    return render(request, 'index.html')
+    return render(request, 'userauth/index.html')
 
 
 
@@ -50,35 +48,27 @@ def register_view(request, role=None):
         password = request.POST.get('password1')
         email = request.POST.get('email')
 
-        # Check if the username already exists
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already exists!")
             return redirect('app:home')
 
-        # Create the user object
         user = User.objects.create_user(username=username, password=password, email=email)
 
-        # Check if a profile exists for the user
         profile, created = Profile.objects.get_or_create(user=user)
 
-        # Update the profile role regardless of whether it was newly created
         profile.role = role
-        profile.save()  # `force_insert` is not needed here
+        profile.save()
 
         if created:
             messages.success(request, f"Profile for {username} created with role: {role}")
         else:
             messages.success(request, f"Profile for {username} updated with new role: {role}")
 
-        # Log the user in and redirect them based on role
         login(request, user)
         return redirect(ROLE_HOME_URLS.get(role, 'app:default_home'))
 
-    return render(request, 'user/register.html', {"form": form, "role": role})
+    return render(request, 'userauth/user/register.html', {"form": form, "role": role})
 
-
-import logging
-logger = logging.getLogger(__name__)
 
 def login_user(request, role=None):
     logger.info(f"Attempting login for role: {role}")
@@ -106,7 +96,7 @@ def login_user(request, role=None):
         
         return redirect('userauth:login_user', role=role)
 
-    return render(request, 'user/login.html', {'form': form, 'role': role})
+    return render(request, 'userauth/user/login.html', {'form': form, 'role': role})
 
 
 
