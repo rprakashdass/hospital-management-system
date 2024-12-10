@@ -22,9 +22,6 @@
 
           <!-- Links for Desktop -->
           <div class="hidden sm:flex space-x-6 items-center">
-            <a href="{% url 'app:home'  %}" class="text-white hover:text-gray-200 font-medium"
-              >Home</a
-            >
             <a href="#about" class="text-white hover:text-gray-200 font-medium"
               >About</a
             >
@@ -43,11 +40,11 @@
               <!-- <div
                 class="absolute group-hover:block bg-white text-gray-800 py-2 rounded shadow-lg w-40"
               > -->
-                <a
-                  href="{% url 'userauth:logout' %}"
-                  class="block px-4 py-2 bg-red-500 rounded-lg text-white"
-                  >Logout</a
-                >
+              <a
+                href="{% url 'userauth:logout' %}"
+                class="block px-4 py-2 bg-red-500 rounded-lg text-white"
+                >Logout</a
+              >
               <!-- </div> -->
             </div>
             {% else %}
@@ -107,11 +104,11 @@
           <!-- <div
             class="absolute group-hover:block bg-white text-gray-800 py-2 rounded shadow-lg w-40"
           > -->
-            <a
-              href="{% url 'userauth:logout' %}"
-              class="block px-4 py-2 hover:bg-red-500"
-              >Logout</a
-            >
+          <a
+            href="{% url 'userauth:logout' %}"
+            class="block px-4 py-2 hover:bg-red-500"
+            >Logout</a
+          >
           <!-- </div> -->
         </div>
         {% else %}

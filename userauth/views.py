@@ -53,7 +53,12 @@ def register_view(request):
 
             messages.success(request, f"Profile for {username} is created and role is {role}")
             login(request, user)
-            return redirect('app:home')
+           
+            if role == 'doctor':
+                return redirect('doctor:home')
+            else:
+                return redirect('patient:home')
+        
 
     return render(request, 'userauth/register.html', {"form": form})
 
@@ -86,4 +91,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('userauth:register_view')
+    return redirect('userauth:register_user')

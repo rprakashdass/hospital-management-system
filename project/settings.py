@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'app',
     'userauth',
     'doctor',
-    'patient'
+    'patient',
+    'model'
 ]
 
 LOGIN_URL = 'app:home'
