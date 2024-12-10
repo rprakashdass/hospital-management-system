@@ -9,24 +9,24 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Lehme Medical Diagnosis Card -->
             <div class="bg-white shadow-lg rounded-lg p-6">
-                <h5 class="text-xl font-semibold text-gray-800 mb-4">Lehme Medical Diagnosis</h5>
+                <h5 class="text-xl font-semibold text-gray-800 mb-4">Heart Disease Diagnosis</h5>
                 <p class="text-gray-600 mb-4">Use our pre-trained model to diagnose initial symptoms.</p>
                 <a href="{% url 'lehme:home' %}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Use Lehme</a>
             </div>
 
             <!-- View Reports Card -->
             <div class="bg-white shadow-lg rounded-lg p-6">
-                <h5 class="text-xl font-semibold text-gray-800 mb-4">View Reports</h5>
-                <p class="text-gray-600 mb-4">Access medical reports and diagnostic results.</p>
-                <a href="#" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">View Reports</a>
+                <h5 class="text-xl font-semibold text-gray-800 mb-4">View Your Enquiries</h5>
+                <p class="text-gray-600 mb-4">Access your enquiries and diagnostic results.</p>
+                <a href="{% url 'doctor:view_enquiries'  %}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">View Reports</a>
             </div>
 
             <!-- Manage Appointments Card -->
-            <div class="bg-white shadow-lg rounded-lg p-6">
+            <!-- <div class="bg-white shadow-lg rounded-lg p-6">
                 <h5 class="text-xl font-semibold text-gray-800 mb-4">Manage Appointments</h5>
                 <p class="text-gray-600 mb-4">Schedule and manage patient appointments.</p>
                 <a href="#" class="inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Manage Appointments</a>
-            </div>
+            </div> -->
 
             <!-- Notifications Card -->
             <div class="bg-white shadow-lg rounded-lg p-6">
@@ -35,9 +35,9 @@
                 <a href="#" class="inline-block bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600">View Notifications</a>
             </div>
         </div>
-
+<br>
         <!-- Additional Sections -->
-        <div class="mt-12">
+        <!-- <div class="mt-12">
             <!-- Resources Section -->
             <h3 class="text-xl font-bold text-gray-800 mb-4">Resources</h3>
             <div class="bg-white shadow-lg rounded-lg p-6">
@@ -46,18 +46,18 @@
             </div>
 
             <!-- Upcoming Appointments -->
-            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Upcoming Appointments</h3>
-            <div class="bg-white shadow-lg rounded-lg p-6">
+            <!-- <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Upcoming Appointments</h3> -->
+            <!--div class="bg-white shadow-lg rounded-lg p-6">
                 <ul class="divide-y divide-gray-200">
                     <li class="py-4 flex justify-between items-center">
-                        <!-- <div>
+                         <div>
                             <p class="font-medium text-gray-800">John Doe</p>
                             <p class="text-sm text-gray-600">Monday, Dec 11, 2024 - 10:00 AM</p>
                         </div>
-                        <a href="#" class="text-blue-500 hover:underline">Details</a> -->
+                        <a href="#" class="text-blue-500 hover:underline">Details</a>
                     </li>
                     <li class="py-4 flex justify-between items-center">
-                        <!-- <div>
+                        <div>
                             <p class="font-medium text-gray-800">Jane Smith</p>
                             <p class="text-sm text-gray-600">Tuesday, Dec 12, 2024 - 2:00 PM</p>
                         </div>

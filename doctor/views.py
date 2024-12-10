@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from userauth.models import Profile
+from model.models import Enquiry
 
 @login_required
 def home(request):
@@ -16,3 +17,9 @@ def home(request):
             # return HttpResponseForbidden("You do not have access to this page.")  # 403 error page
     except Profile.DoesNotExist:
         return HttpResponseForbidden("Profile not found or invalid user.")
+
+
+@login_required
+def view_enquiries(request):
+    enquiries = Enquiry.objects.filter(user=request.user)  # Fetch the user's enquiries
+    return render(request, 'doctor/view_enquiries.html', {'enquiries': enquiries})

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8 overflow-x">
+    <h1 class="text-3xl font-extrabold text-blue-600 mb-6">Your Enquiries</h1>
+    
+    {% if enquiries %}
+    <div class="overflow-x-auto">
+        <table class="table-auto w-full bg-white shadow-lg rounded-lg">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border">Date</th>
+                    <th class="px-4 py-2 border">Height (cm)</th>
+                    <th class="px-4 py-2 border">Weight (kg)</th>
+                    <th class="px-4 py-2 border">Temperature (°C)</th>
+                    <th class="px-4 py-2 border">Heart Rate (bpm)</th>
+                    <th class="px-4 py-2 border">Cholesterol (mg/dL)</th>
+                    <th class="px-4 py-2 border">Blood Sugar (mg/dL)</th>
+                    <th class="px-4 py-2 border">Blood Pressure</th>
+                    <th class="px-4 py-2 border">Existing Conditions</th>
+                    <th class="px-4 py-2 border">Family History</th>
+                    <th class="px-4 py-2 border">Smoking Status</th>
+                    <th class="px-4 py-2 border">Lab Status</th>
+                    <th class="px-4 py-2 border">Symptom</th>
+                    <th class="px-4 py-2 border">Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enquiry in enquiries %}
+                    <tr>
+                        <td class="px-4 py-2 border">{{ enquiry.created_at }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.height }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.weight }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.temperature }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.heart_rate }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.cholestrol }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.blood_sugar }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.systolic }}/{{ enquiry.diastolic }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.existing_conditions }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.family_history }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.smoking_status }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.lab_status }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.symptom }}</td>
+                        <td class="px-4 py-2 border">{{ enquiry.prediction }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {% else %}
+        <p class="text-lg text-gray-600 mt-6">You have not submitted any enquiries yet.</p>
+    {% endif %}
+    
+    <div class="mt-8">
+        <a href="{% url 'doctor:home' %}" class="bg-green-500 text-white rounded-lg py-2 px-4 hover:bg-green-600 transition">
+            Back
+        </a>
+    </div>
+</div>
+{% endblock %}
