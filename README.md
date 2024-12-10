@@ -52,7 +52,7 @@ input_data['Diastolic_BP'] = [diastolic]
 | **Blood Sugar (mg/dL)**  | 79.0          | 110.0         |
 | **Systolic BP (mmHg)**   | 120.0         | 140.0         |
 | **Diastolic BP (mmHg)**  | 80.0          | 90.0          |
-| **Existing Conditions**  | Diabetes      | Thyroid       |
+| **Existing Conditions**  | Diabetes      | Hypertension  |
 | **Family History**       | Yes           | No            |
 | **Smoking Status**       | Never         | Former        |
 | **Lab Status**           | High Cholesterol | Normal    |
@@ -60,4 +60,5 @@ input_data['Diastolic_BP'] = [diastolic]
 
 
 ## Example Output
-Coronary Artery Disease
+  Output 1: Coronary Artery Disease
+  Output 2: Hypertension
