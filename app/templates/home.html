@@ -1,25 +1,120 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block content %}
+<div class="min-h-screen bg-gray-100">
 
-<div class="container mx-auto mt-8 px-4">
-    <div class="flex flex-wrap justify-center">
-        <!-- Left side with image -->
-        <div class="w-full sm:w-1/2 flex justify-center items-center mb-6 sm:mb-0">
-            <figure class="text-center">
-                <img src="{% static 'login_template.jpg' %}" class="w-full h-auto max-w-md" alt="Doctor or Employee">
-                <figcaption class="mt-4">
-                    <h1 class="text-2xl font-semibold">Login</h1>
-                </figcaption>
-            </figure>
-        </div>
-
-        <!-- Right side with login buttons -->
-        <div class="w-full sm:w-1/2 flex flex-col justify-center items-center">
-            <a href="{% url 'userauth:login_user' 'doctor' %}" class="btn-primary mb-3 px-8 py-3 rounded-lg text-white bg-green-500 hover:bg-green-600 transition duration-300">I am a Doctor</a>
-            <a href="{% url 'userauth:login_user' 'patient' %}" class="btn-primary mb-3 px-8 py-3 rounded-lg text-white bg-blue-500 hover:bg-blue-600 transition duration-300">I am a Patient</a>
-        </div>
+  <!-- Header Section -->
+  <div class="bg-[#2596be] text-white py-12">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold">Heart Disease Prediction System</h1>
+      <p class="mt-4 text-lg sm:text-xl max-w-2xl mx-auto">
+        Empowered by machine learning to provide reliable predictions for heart disease risks.
+      </p>
     </div>
+  </div>
+
+  <!-- About the Project -->
+  <div class="container mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-semibold text-gray-800">About the Project</h2>
+      <p class="mt-4 text-gray-600">
+        This project was developed after a rigorous three-month training where we explored machine learning algorithms, focusing on
+        <strong>K-Nearest Neighbors (KNN)</strong> and Django. It integrates advanced techniques to predict heart disease risk based on parameters like blood pressure, cholesterol, and age.
+      </p>
+
+      <!-- Model Performance Section -->
+      <div class="mt-10">
+        <h2 class="text-3xl font-semibold text-gray-800">Model Performance</h2>
+        <ul class="mt-4 list-disc list-inside text-gray-700">
+          <li><strong>Accuracy:</strong> 92%</li>
+          <li><strong>Precision:</strong> 91%</li>
+          <li><strong>Recall:</strong> 90%</li>
+          <li><strong>F1 Score:</strong> 91%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Login Section -->
+<div class="container mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+  <div class="bg-white rounded-lg shadow-lg p-8">
+      {% if user.is_authenticated %}
+      <h2 class="text-3xl font-semibold text-gray-800">Welcome!</h2>
+      <p class="mt-4 text-gray-600">
+          You are logged in. You can now use the prediction model and explore its features.
+      </p>
+      <a 
+          href="{% url 'lehme:home' %}" 
+          class="mt-4 inline-block bg-green-600 text-white py-2 px-4 rounded"
+      >
+          Visit Prediction Model
+      </a>
+      {% else %}
+      <h2 class="text-3xl font-semibold text-gray-800">You are not Logged In!</h2>
+      <p class="mt-4 text-gray-600">
+          Please log in to use the prediction model and explore its features.
+      </p>
+      <a 
+          href="{% url 'userauth:login_user' %}" 
+          class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded"
+      >
+          Login
+      </a>
+      {% endif %}
+  </div>
 </div>
 
+  
+  <!-- Plot Section -->
+  <div class="container mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-semibold text-gray-800">Visualizations</h2>
+      <p class="mt-4 text-gray-600">
+        Below are the key visualizations showcasing the model's performance.
+      </p>
+
+      <!-- Plot 1: Accuracy Across Epoch -->
+      <div class="mt-8">
+        <h3 class="text-2xl font-semibold text-gray-700">Accuracy Across Epochs</h3>
+        <p class="mt-2 text-gray-600">
+          This plot shows how the model's accuracy improved during training across multiple epochs.
+        </p>
+        <img
+          src="{% static 'app/training_across_epoch.png' %}"
+          alt="Accuracy Plot"
+          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-3/4 mx-auto"
+        />
+      </div>
+
+      <!-- Plot 2: Confusion Matrix -->
+      <div class="mt-8">
+        <h3 class="text-2xl font-semibold text-gray-700">Confusion Matrix</h3>
+        <p class="mt-2 text-gray-600">
+          The confusion matrix displays how well the model predicted each class compared to the actual results.
+        </p>
+        <img
+          src="{% static 'app/confusion_matrix.png' %}"
+          alt="Confusion Matrix"
+          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-3/4 mx-auto"
+        />
+      </div>
+
+      <!-- Plot 3: Bar Chart for Metrics -->
+      <div class="mt-8">
+        <h3 class="text-2xl font-semibold text-gray-700">Classification Report</h3>
+        <p class="mt-2 text-gray-600">
+          This chart highlights precision, recall, and F1-score metrics for each class, showing the model's performance.
+        </p>
+        <img
+          src="{% static 'app/classification_report.png' %}"
+          alt="Performance Metrics"
+          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-3/4 mx-auto"
+        />
+      </div>
+    </div>
+  </div>
+
+</div>
 {% endblock content %}
