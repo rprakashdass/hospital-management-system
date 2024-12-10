@@ -76,8 +76,8 @@ def login_view(request):
                 profile = Profile.objects.get(user=user)
                 if profile.role == role:
                     login(request, user)
-                    messages.success(request, f"Welcome {username}!")
-                    return redirect('app:home')
+                    # messages.success(request, f"Welcome {username}!")
+                    return redirect('doctor:home')
                 else:
                     messages.error(request, f"Role mismatch. You are not registered as a {role}.")
             except Profile.DoesNotExist:
