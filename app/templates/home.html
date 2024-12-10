@@ -27,10 +27,10 @@
       <div class="mt-10">
         <h2 class="text-3xl font-semibold text-gray-800">Model Performance</h2>
         <ul class="mt-4 list-disc list-inside text-gray-700">
-          <li><strong>Accuracy:</strong> 92%</li>
-          <li><strong>Precision:</strong> 91%</li>
-          <li><strong>Recall:</strong> 90%</li>
-          <li><strong>F1 Score:</strong> 91%</li>
+          <li><strong>Accuracy:</strong> 82%</li>
+          <li><strong>Precision:</strong> 86%</li>
+          <li><strong>Recall:</strong> 83%</li>
+          <li><strong>F1 Score:</strong> 88%</li>
         </ul>
       </div>
     </div>
@@ -75,20 +75,7 @@
         Below are the key visualizations showcasing the model's performance.
       </p>
 
-      <!-- Plot 1: Accuracy Across Epoch -->
-      <div class="mt-8">
-        <h3 class="text-2xl font-semibold text-gray-700">Accuracy Across Epochs</h3>
-        <p class="mt-2 text-gray-600">
-          This plot shows how the model's accuracy improved during training across multiple epochs.
-        </p>
-        <img
-          src="{% static 'app/training_across_epoch.png' %}"
-          alt="Accuracy Plot"
-          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-3/4 mx-auto"
-        />
-      </div>
-
-      <!-- Plot 2: Confusion Matrix -->
+      <!-- Confusion Matrix -->
       <div class="mt-8">
         <h3 class="text-2xl font-semibold text-gray-700">Confusion Matrix</h3>
         <p class="mt-2 text-gray-600">
@@ -97,11 +84,11 @@
         <img
           src="{% static 'app/confusion_matrix.png' %}"
           alt="Confusion Matrix"
-          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-3/4 mx-auto"
+          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-2/4 mx-auto object-fit-fill"
         />
       </div>
 
-      <!-- Plot 3: Bar Chart for Metrics -->
+      <!-- Bar Chart for Metrics -->
       <div class="mt-8">
         <h3 class="text-2xl font-semibold text-gray-700">Classification Report</h3>
         <p class="mt-2 text-gray-600">
@@ -110,7 +97,7 @@
         <img
           src="{% static 'app/classification_report.png' %}"
           alt="Performance Metrics"
-          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-3/4 mx-auto"
+          class="mt-4 rounded-lg w-full sm:w-4/5 lg:w-2/4 mx-auto"
         />
       </div>
     </div>
