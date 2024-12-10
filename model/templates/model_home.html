@@ -14,18 +14,19 @@
         <div class="mb-8">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Parameters Needed:</h2>
             <ul class="list-disc list-inside text-gray-700 space-y-2">
-                <li><strong>Height (cm):</strong> Patient's height in centimeters.</li>
-                <li><strong>Weight (kg):</strong> Patient's weight in kilograms.</li>
-                <li><strong>Blood Pressure:</strong> Measured in mmHg.</li>
-                <li><strong>Temperature (°C):</strong> Body temperature in degrees Celsius.</li>
-                <li><strong>Heart Rate:</strong> Beats per minute.</li>
-                <li><strong>Symptoms:</strong> Encoded symptom identifier.</li>
-                <li><strong>Existing Conditions:</strong> Encoded identifier for pre-existing medical conditions.</li>
-                <li><strong>Laboratory Test Results:</strong> Placeholder for lab test values (if applicable).</li>
-                <li><strong>Cholesterol (mg/dL):</strong> Cholesterol level in milligrams per deciliter.</li>
-                <li><strong>Blood Sugar (mg/dL):</strong> Blood sugar level in milligrams per deciliter.</li>
-                <li><strong>Family History of Heart Disease:</strong> Boolean (Yes/No) for heart disease in family history.</li>
-                <li><strong>Smoking Status:</strong> Encoded value for smoking habits.</li>
+                <li><strong>Height (cm):</strong> Patient's height in centimeters (50-250 cm).</li>
+                <li><strong>Weight (kg):</strong> Patient's weight in kilograms (20-200 kg).</li>
+                <li><strong>Temperature (°C):</strong> Body temperature in degrees Celsius (30-45 °C).</li>
+                <li><strong>Heart Rate (bpm):</strong> Beats per minute (40-200 bpm).</li>
+                <li><strong>Cholesterol (mg/dL):</strong> Cholesterol level in milligrams per deciliter (100-300 mg/dL).</li>
+                <li><strong>Blood Sugar (mg/dL):</strong> Blood sugar level in milligrams per deciliter (50-500 mg/dL).</li>
+                <li><strong>Systolic Pressure:</strong> Blood pressure's upper reading (80-200 mmHg).</li>
+                <li><strong>Diastolic Pressure:</strong> Blood pressure's lower reading (50-120 mmHg).</li>
+                <li><strong>Existing Conditions:</strong> Diabetes, Hypertension, High cholesterol, Asthma.</li>
+                <li><strong>Family History:</strong> Indication of heart disease in family history (Yes/No).</li>
+                <li><strong>Smoking Status:</strong> Never, Former, or Current smoker.</li>
+                <li><strong>Lab Status:</strong> Results such as high blood sugar, high cholesterol, low iron, or normal.</li>
+                <li><strong>Symptoms:</strong> Chest pain, dizziness, fatigue, nausea, palpitations, or shortness of breath.</li>
             </ul>
         </div>
 
@@ -42,6 +43,5 @@
         </a>
     </div>
 </div>
-
 
 {% endblock content %}

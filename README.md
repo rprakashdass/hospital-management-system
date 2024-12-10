@@ -4,27 +4,32 @@
 
 This Health Management System is developed as part of the Infosys Springboard Internship on Artificial Intelligence. The aim of this project is to provide an efficient platform for both patients and healthcare providers (doctors) to manage health records, consultations, and predictions related to health conditions.
 
+# Virtual Environment
+
+1.  `source activate .venv`
+
 ## Features
 
-- **User Registration**: 
+- **User Registration**:
+
   - Role-based registration for patients and doctors.
   - Secure user authentication with email verification.
+- **Role Management**:
 
-- **Role Management**: 
   - Different dashboards for patients and doctors based on their roles.
   - Automatic role assignment during user registration.
+- **Health Record Management**:
 
-- **Health Record Management**: 
   - Patients can manage their personal health information and medical history.
   - Doctors can access and update patient records as needed.
+- **Health Prediction Tools**:
 
-- **Health Prediction Tools**: 
   - Integration of AI algorithms to provide health predictions based on user input and historical data.
+- **Document Management**:
 
-- **Document Management**: 
   - Secure storage and retrieval of health-related documents.
-  
-- **User-Friendly Interface**: 
+- **User-Friendly Interface**:
+
   - Responsive design using Bootstrap for easy navigation on both desktop and mobile devices.
 
 ## Technologies Used
@@ -35,17 +40,18 @@ This Health Management System is developed as part of the Infosys Springboard In
 - **Version Control**: Git for source code management
 
 ## File Structure
+
 ![image](https://github.com/user-attachments/assets/e7d8d25b-5c4a-43dd-b9bd-cbfd2952e45a)
 
-
 ## Pages
+
 ### Home
+
 ![image](https://github.com/user-attachments/assets/d1a1849e-e0e5-4d02-b113-dbf14bfe2765)
 
 ### Login
+
 ![image](https://github.com/user-attachments/assets/403d2ee2-5cb3-4755-be8f-4c5434a0d864)
-
-
 
 ## Installation
 
