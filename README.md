@@ -1,87 +1,63 @@
-# Health Management System!
+# Patient Health Enquiry System
 
-## Project Overview
-
-This Health Management System is developed as part of the Infosys Springboard Internship on Artificial Intelligence. The aim of this project is to provide an efficient platform for both patients and healthcare providers (doctors) to manage health records, consultations, and predictions related to health conditions.
-
-# Virtual Environment
-
-1.  `source activate .venv`
+This project is designed to collect patient data for diagnostic predictions. It allows users to input key medical parameters to assess health risks or predict possible diseases using pre-trained models.
 
 ## Features
+- Collects detailed health-related inputs from patients.
+- Provides disease predictions based on the input data.
+- Stores data in an organized and structured manner for further analysis.
 
-- **User Registration**:
+## Form Labels
 
-  - Role-based registration for patients and doctors.
-  - Secure user authentication with email verification.
-- **Role Management**:
+Below are the fields available in the form, designed to capture essential patient health parameters:
 
-  - Different dashboards for patients and doctors based on their roles.
-  - Automatic role assignment during user registration.
-- **Health Record Management**:
+| **Form Label**           | **Description**                           |
+|---------------------------|-------------------------------------------|
+| **Height_cm**             | Patient's height in centimeters.         |
+| **Weight_kg**             | Patient's weight in kilograms.           |
+| **Temperature_C**         | Patient's body temperature in Celsius.   |
+| **Heart_Rate**            | Patient's heart rate in beats per minute (bpm). |
+| **Cholesterol_mg_dL**     | Cholesterol level in milligrams per deciliter. |
+| **Blood_Sugar_mg_dL**     | Blood sugar level in milligrams per deciliter. |
+| **Systolic_BP**           | Systolic blood pressure (mmHg).          |
+| **Diastolic_BP**          | Diastolic blood pressure (mmHg).         |
 
-  - Patients can manage their personal health information and medical history.
-  - Doctors can access and update patient records as needed.
-- **Health Prediction Tools**:
+### Example Input Data Mapping
+The input fields are mapped in the backend as follows:
 
-  - Integration of AI algorithms to provide health predictions based on user input and historical data.
-- **Document Management**:
+```python
+input_data['Height_cm'] = [height]
+input_data['Weight_kg'] = [weight]
+input_data['Temperature_C'] = [temperature]
+input_data['Heart_Rate'] = [heart_rate]
+input_data['Cholesterol_mg_dL'] = [cholestrol]
+input_data['Blood_Sugar_mg_dL'] = [blood_sugar]
+input_data['Systolic_BP'] = [systolic]
+input_data['Diastolic_BP'] = [diastolic]
+```
 
-  - Secure storage and retrieval of health-related documents.
-- **User-Friendly Interface**:
+## How to Use
+1. Fill in the form with accurate values for all the above fields.
+2. Submit the form to process the data and receive predictions.
+3. View predictions and access your previous enquiries on the dashboard.
 
-  - Responsive design using Bootstrap for easy navigation on both desktop and mobile devices.
 
-## Technologies Used
+| **Field**               | **Example 1** | **Example 2** |
+|--------------------------|---------------|---------------|
+| **Height (cm)**          | 174.0         | 162.0         |
+| **Weight (kg)**          | 59.0          | 70.0          |
+| **Temperature (°C)**     | 36.6          | 37.5          |
+| **Heart Rate (bpm)**     | 63            | 72            |
+| **Cholesterol (mg/dL)**  | 198.0         | 220.0         |
+| **Blood Sugar (mg/dL)**  | 79.0          | 110.0         |
+| **Systolic BP (mmHg)**   | 120.0         | 140.0         |
+| **Diastolic BP (mmHg)**  | 80.0          | 90.0          |
+| **Existing Conditions**  | Diabetes      | Thyroid       |
+| **Family History**       | Yes           | No            |
+| **Smoking Status**       | Never         | Former        |
+| **Lab Status**           | High Cholesterol | Normal    |
+| **Symptoms**             | Chest Pain    | Fatigue       |
 
-- **Backend**: Django Framework
-- **Frontend**: HTML, CSS, JavaScript, Bootstrap
-- **Database**: SQLite
-- **Version Control**: Git for source code management
 
-## File Structure
-
-![image](https://github.com/user-attachments/assets/e7d8d25b-5c4a-43dd-b9bd-cbfd2952e45a)
-
-## Pages
-
-### Home
-
-![image](https://github.com/user-attachments/assets/d1a1849e-e0e5-4d02-b113-dbf14bfe2765)
-
-### Login
-
-![image](https://github.com/user-attachments/assets/403d2ee2-5cb3-4755-be8f-4c5434a0d864)
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/rprakashdass/hospital-management-system.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd health-management-system
-   ```
-3. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-4. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-5. Run database migrations:
-   ```bash
-   python manage.py migrate
-   ```
-6. Start the development server:
-   ```bash
-   python manage.py runserver
-   ```
-7. Access the application at `http://127.0.0.1:8000/`.
-
-## Acknowledgements
-
-- Thanks to Infosys Springboard for the opportunity to work on this project and enhance my skills in AI and software development.
+## Example Output
+Coronary Artery Disease
