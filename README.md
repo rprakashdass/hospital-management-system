@@ -60,5 +60,7 @@ input_data['Diastolic_BP'] = [diastolic]
 
 
 ## Example Output
-  Output 1: Coronary Artery Disease
-  Output 2: Hypertension
+<ol>
+  <li>Coronary Artery Disease</li>
+  <li>Hypertension</li>
+</ol>
